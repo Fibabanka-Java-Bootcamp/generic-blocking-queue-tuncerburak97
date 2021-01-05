@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class GenericQueue<E> implements QueueInterface<E> {
 
      Node<E> first, last;
@@ -16,7 +18,7 @@ public class GenericQueue<E> implements QueueInterface<E> {
 
 
     @Override
-    public synchronized QueueInterface<E> add(E element) {
+    public synchronized QueueInterface<E> add(E element) throws NoSuchElementException {
         Node<E> newElement = new Node<E>(element);
         if (first == null) {
             first = newElement;
@@ -44,7 +46,7 @@ public class GenericQueue<E> implements QueueInterface<E> {
     }
 
     @Override
-    public synchronized E poll() {
+    public synchronized E poll() throws NullPointerException {
         if (first == null) {
             return null;
         }
