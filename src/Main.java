@@ -30,6 +30,8 @@ public class Main {
         }
 
 
+        System.out.println("Main thread ended");
+
 
     }
 }
